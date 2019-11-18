@@ -1,0 +1,23 @@
+.crypto-priceList-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  hr {
+    width: 100%;
+    border: 0.5px solid #f9f9f91c;
+  }
+  .crypto-priceList-container-item {
+    display: flex;
+    justify-content: space-between;
+    .crypto-priceList-container-item-col {
+      font-size: calc(4px + 2vmin);
+      width: 60%;
+      line-height: 0.8em;
+    }
+    .crypto-priceList-container-item-close {
+      vertical-align: middle;
+      color: #f8f1ffb8;
+      height: inherit;
+    }
+  }
+}
