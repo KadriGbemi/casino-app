@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import Typography from '@material-ui/core/Typography';
-import { deepOrange} from '@material-ui/core/colors';
+import { deepOrange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -16,14 +16,14 @@ const useStyles = makeStyles(theme => ({
   },
   textField: {
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(1)
   },
-  typographyText:{
-    marginTop: theme.spacing(3),
+  typographyText: {
+    marginTop: theme.spacing(3)
   },
   margin: {
     margin: theme.spacing(1),
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   }
 }));
 
@@ -37,7 +37,7 @@ const AddButton = withStyles(theme => ({
   }
 }))(Fab);
 
-export default function TextInputFormComponent() {
+export default function TextInputFormComponent(props) {
   const classes = useStyles();
 
   return (
@@ -45,19 +45,30 @@ export default function TextInputFormComponent() {
       <TextField
         id="outlined-helperText"
         label="CRYPTOCURRENCY CODE"
-        defaultValue="BTC"
         className={classes.textField}
         margin="normal"
         variant="outlined"
+        onChange={props.handleTextFieldChange}
       />
-      <AddButton variant="extended" color="primary" className={classes.margin}>
+      <AddButton
+        variant="extended"
+        color="primary"
+        className={classes.margin}
+        onClick={props.handleAddButtonClick}
+      >
         Add
       </AddButton>
-        <Typography variant="caption" display="block" color="inherit" gutterBottom style={{color: '#bdb0b0'}}>
-          Use of this service is subject to terms and
-          <br />
-          {'conditions'}
-        </Typography>
+      <Typography
+        variant="caption"
+        display="block"
+        color="inherit"
+        gutterBottom
+        style={{ color: '#bdb0b0' }}
+      >
+        Use of this service is subject to terms and
+        <br />
+        {'conditions'}
+      </Typography>
     </Card>
   );
 }

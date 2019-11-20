@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 90%;
+  height: 40%;
   hr {
     width: 100%;
     border: 0.5px solid #f9f9f91c;
@@ -16,8 +17,8 @@
     }
     .crypto-priceList-container-item-close {
       vertical-align: middle;
-      color: #f8f1ffb8;
-      height: inherit;
+      color: #f8f1ffb8 !important;
+      height: auto;
     }
   }
 }
