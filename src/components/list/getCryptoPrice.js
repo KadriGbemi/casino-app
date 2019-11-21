@@ -15,13 +15,13 @@ class GetCryptoPriceList extends Component {
     if (this.props.priceListRequest !== prevProps.priceListRequest) {
       getCryptoPriceList(this.props.priceListRequest)
         .then(response => {
-          this.setState({ priceList: response });
+          this.setState({ priceList: JSON.parse(localStorage.getItem('priceList')) });
         })
-        .catch(function(error) {
-          console.log('Error', error);
-        });
     }
   }
+componentDidMount(){
+  this.setState({ priceList: JSON.parse(localStorage.getItem('priceList')) });
+}
   displaySnackBarMessage = index => {
     if (index === 0) {
       return (
