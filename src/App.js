@@ -11,20 +11,34 @@ class App extends Component {
     input: '',
     priceListRequest: []
   };
+  componentDidUpdate(prevState) {
+    if (
+      this.state.priceListRequest !== prevState.priceListRequest &&
+      this.state.priceListRequest.length > 0
+    ) {
+      localStorage.setItem(
+        'priceListRequest',
+        JSON.stringify(this.state.priceListRequest)
+      );
+    }
+  }
   handleChange = e => {
     this.setState({ input: e.target.value });
   };
   onAddButtonClick = e => {
-    this.setState(previousState => ({
-      priceListRequest: [...previousState.priceListRequest, this.state.input]
-    }));
+    this.setState({
+      priceListRequest: (JSON.parse(localStorage.getItem('priceListRequest'))
+        ? JSON.parse(localStorage.getItem('priceListRequest'))
+        : []
+      ).concat(this.state.input)
+    });
     e.preventDefault();
   };
   onDeleteButtonClick = (item, e) => {
     this.setState({
-      priceListRequest: this.state.priceListRequest.filter(
-        request => item !== request
-      )
+      priceListRequest: JSON.parse(
+        localStorage.getItem('priceListRequest')
+      ).filter(request => item !== request)
     });
     e.preventDefault();
   };
