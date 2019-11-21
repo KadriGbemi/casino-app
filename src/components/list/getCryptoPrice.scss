@@ -22,3 +22,12 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .crypto-priceList-container {
+    margin: 5%;
+    .crypto-priceList-container-item {
+      margin-top: 10%;
+    }
+  }
+}

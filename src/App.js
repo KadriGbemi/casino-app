@@ -12,7 +12,6 @@ class App extends Component {
     priceListRequest: []
   };
   handleChange = e => {
-    console.log('Change is entered', e.target.value);
     this.setState({ input: e.target.value });
   };
   onAddButtonClick = e => {
@@ -22,10 +21,10 @@ class App extends Component {
     e.preventDefault();
   };
   onDeleteButtonClick = (item, e) => {
-    console.log("Delete button clicked(item)", item);
-    console.log("Delete button clicked", e);
     this.setState({
-      priceListRequest:this.state.priceListRequest.filter(request => item !== request)
+      priceListRequest: this.state.priceListRequest.filter(
+        request => item !== request
+      )
     });
     e.preventDefault();
   };
@@ -33,14 +32,21 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-content">
-          <div className="App-content-details">
+          <div className="App-content-info">
             <img src={Logo} alt="logo" />
             <div>
-              <Typography variant="h4" gutterBottom style={{ width: '130%' }}>
+              <Typography
+                variant="h4"
+                gutterBottom
+                style={{ width: '100%', marginTop: '15%' }}
+              >
                 Now you can track all your cryptos here!
               </Typography>
-              <p className="App-content-sub-details">
+              <p className="App-content-info-paragraph">
                 Just enter the cryptocurrency code on the form to the right
+              </p>
+              <p className="App-content-info-mobile">
+                Just enter the cryptocurrency code on the form below
               </p>
             </div>
             <GetCryptoPriceList

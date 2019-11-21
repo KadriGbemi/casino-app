@@ -6,7 +6,6 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import IconButton from '@material-ui/core/IconButton';
 import getCryptoPriceList from '../../_services/request';
 import './getCryptoPrice.scss';
-
 class GetCryptoPriceList extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +15,6 @@ class GetCryptoPriceList extends Component {
     if (this.props.priceListRequest !== prevProps.priceListRequest) {
       getCryptoPriceList(this.props.priceListRequest)
         .then(response => {
-          console.log('Price list', response);
           this.setState({ priceList: response });
         })
         .catch(function(error) {
@@ -28,7 +26,7 @@ class GetCryptoPriceList extends Component {
     if (index === 0) {
       return (
         <SnackbarContent
-          message="Oops! Looks like you entered the wrong code. Or try to use uppercase letters like (e.g. BTC, NMC)."
+          message="Oops! No data available try again or use uppercase letters like (e.g. BTC, NMC)."
           style={{ backgroundColor: '#4e2872' }}
         />
       );
