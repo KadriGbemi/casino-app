@@ -13,8 +13,7 @@ class App extends Component {
   };
   componentDidUpdate(prevState) {
     if (
-      this.state.priceListRequest !== prevState.priceListRequest &&
-      this.state.priceListRequest.length > 0
+      this.state.priceListRequest !== prevState.priceListRequest
     ) {
       localStorage.setItem(
         'priceListRequest',
