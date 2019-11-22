@@ -9,21 +9,33 @@
   background-repeat: no-repeat;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: none;
   .App-content {
     width: 90%;
     display: flex;
     .App-content-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: center;
       align-items: flex-start;
-      height: 75%;
+      .App-content-info-container{
+        height: 50%;
+        width: 125%;
+        .App-content-info-paragraph {
+          color: #f8f1ffb8;
+          display: block;
+        }
+        .App-content-info-mobile {
+          display: none;
+        }
+      }
         .App-content-info-paragraph {
           color: #f8f1ffb8;
         }
         .App-content-info-mobile {
           display: none;
         }
+      }
     }
     .App-content-form {
       margin-top: 5%;
@@ -39,7 +51,6 @@
       }
     }
   }
-}
 
 @media screen and (max-width: 850px) {
   .App {
@@ -49,6 +60,8 @@
       flex-direction: column;
       .App-content-info {
         margin-top: 5%;
+        .App-content-info-container{
+          width: 100%;
         .App-content-info-paragraph {
           display: none;
         }
@@ -56,6 +69,7 @@
           color: #f8f1ffb8;
           display: block;
         }
+      }
       }
       .App-content-center {
         display: none;

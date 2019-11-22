@@ -28,6 +28,7 @@ componentDidMount(){
         <SnackbarContent
           message="Oops! No data available try again or use uppercase letters like (e.g. BTC, NMC)."
           style={{ backgroundColor: '#4e2872' }}
+          className="crypto-priceList-container-item"
         />
       );
     }

@@ -12,14 +12,19 @@ class App extends Component {
     priceListRequest: []
   };
   componentDidUpdate(prevState) {
-    if (
-      this.state.priceListRequest !== prevState.priceListRequest
-    ) {
+    if (this.state.priceListRequest !== prevState.priceListRequest) {
       localStorage.setItem(
         'priceListRequest',
         JSON.stringify(this.state.priceListRequest)
       );
     }
+  }
+  componentDidMount() {
+    this.setState({
+      priceListRequest: JSON.parse(localStorage.getItem('priceListRequest'))
+        ? JSON.parse(localStorage.getItem('priceListRequest'))
+        : []
+    });
   }
   handleChange = e => {
     this.setState({ input: e.target.value });
@@ -46,8 +51,8 @@ class App extends Component {
       <div className="App">
         <div className="App-content">
           <div className="App-content-info">
+            <div className="App-content-info-container">
             <img src={Logo} alt="logo" />
-            <div>
               <Typography
                 variant="h4"
                 gutterBottom

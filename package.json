@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
     "gh-pages": "^2.1.1"
   }
 }
