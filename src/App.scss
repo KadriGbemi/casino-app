@@ -2,7 +2,7 @@
   background-color: #360863;
   min-height: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-image: url('./assets/bg.png');
   background-position: 450%;
   background-size: 84%;
@@ -17,12 +17,13 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
-      .App-content-info-paragraph {
-        color: #f8f1ffb8;
-      }
-      .App-content-info-mobile {
-        display: none;
-      }
+      height: 75%;
+        .App-content-info-paragraph {
+          color: #f8f1ffb8;
+        }
+        .App-content-info-mobile {
+          display: none;
+        }
     }
     .App-content-form {
       margin-top: 5%;
@@ -40,7 +41,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .App {
     background-position: -20%;
     background-size: 360%;
