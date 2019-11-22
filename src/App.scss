@@ -59,6 +59,7 @@
     background-size: 360%;
     .App-content {
       flex-direction: column;
+      max-height: none;
       .App-content-info {
         margin-top: 5%;
         .App-content-info-container {
