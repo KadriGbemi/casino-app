@@ -13,12 +13,13 @@
   .App-content {
     width: 90%;
     display: flex;
+    max-height: 100vh;
     .App-content-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      .App-content-info-container{
+      .App-content-info-container {
         height: 50%;
         width: 125%;
         .App-content-info-paragraph {
@@ -29,28 +30,28 @@
           display: none;
         }
       }
-        .App-content-info-paragraph {
-          color: #f8f1ffb8;
-        }
-        .App-content-info-mobile {
-          display: none;
-        }
+      .App-content-info-paragraph {
+        color: #f8f1ffb8;
       }
-    }
-    .App-content-form {
-      margin-top: 5%;
-    }
-    .App-content-center {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-end;
-      img {
-        width: calc(100% - 20px);
-        height: 80%;
+      .App-content-info-mobile {
+        display: none;
       }
     }
   }
+  .App-content-form {
+    margin-top: 5%;
+  }
+  .App-content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    img {
+      width: calc(100% - 20px);
+      height: 80%;
+    }
+  }
+}
 
 @media screen and (max-width: 850px) {
   .App {
@@ -60,16 +61,16 @@
       flex-direction: column;
       .App-content-info {
         margin-top: 5%;
-        .App-content-info-container{
+        .App-content-info-container {
           width: 100%;
-        .App-content-info-paragraph {
-          display: none;
+          .App-content-info-paragraph {
+            display: none;
+          }
+          .App-content-info-mobile {
+            color: #f8f1ffb8;
+            display: block;
+          }
         }
-        .App-content-info-mobile {
-          color: #f8f1ffb8;
-          display: block;
-        }
-      }
       }
       .App-content-center {
         display: none;
