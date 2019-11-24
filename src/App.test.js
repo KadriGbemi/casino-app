@@ -1,15 +1,15 @@
 import React from 'react';
-import { expect } from 'chai';
+
 import Enzyme, { mount } from 'enzyme';
-import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
+import { expect } from 'chai';
+import sinon from 'sinon';
+
+import Fab from '@material-ui/core/Fab';
 
 import App from './App';
 import GetCryptoPriceList from './components/list/getCryptoPrice';
 import TextInputFormComponent from './components/form/textInput';
-
-import Fab from '@material-ui/core/Fab';
-import IconButton from '@material-ui/core/IconButton';
 
 Enzyme.configure({ adapter: new Adapter() });
 
