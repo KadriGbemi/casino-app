@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import TextField from '@material-ui/core/TextField';
@@ -8,8 +9,11 @@ import { deepOrange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    minWidth: 275,
+    minWidth: 270,
     padding: 30,
+    [theme.breakpoints.down('sm')]: {
+      minWidth: 230,
+    },
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'center'
