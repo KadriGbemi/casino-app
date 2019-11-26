@@ -14,22 +14,8 @@ class GetCryptoPriceList extends Component {
     super(props);
     this.state = { priceList: [], errorMessage: '' };
   }
-  componentDidUpdate(prevProps) {
-    if (this.props.priceListRequest !== prevProps.priceListRequest) {
-      getCryptoPriceList(this.props.priceListRequest).then(response => {
-        if (response.Response) {
-          this.setState({
-            errorMessage:
-              'Oops! No data available try again or use uppercase letters like (e.g. BTC, NMC).',
-            priceList: []
-          });
-        } else {
-          this.setState({ priceList: response });
-        }
-      });
-    }
-  }
-  componentDidMount() {
+
+  getPriceListRequest = () => {
     getCryptoPriceList(this.props.priceListRequest).then(response => {
       response.Response
         ? this.setState({
@@ -39,8 +25,7 @@ class GetCryptoPriceList extends Component {
           })
         : this.setState({ priceList: response });
     });
-  }
-
+  };
   displaySnackBarMessage = () => {
     return (
       <SnackbarContent
@@ -51,6 +36,7 @@ class GetCryptoPriceList extends Component {
     );
   };
   render() {
+    this.getPriceListRequest();
     const cryptoPriceList =
       this.state.errorMessage && this.state.priceList.length === 0
         ? this.displaySnackBarMessage()
