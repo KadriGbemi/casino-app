@@ -6,39 +6,24 @@ import Typography from '@material-ui/core/Typography';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import IconButton from '@material-ui/core/IconButton';
 
-import getCryptoPriceList from '../../_services/request';
-
 import './getCryptoPrice.scss';
 class GetCryptoPriceList extends Component {
   constructor(props) {
     super(props);
-    this.state = { priceList: [], errorMessage: '' };
+    this.state = { priceList: [] };
   }
-
-  getPriceListRequest = () => {
-    getCryptoPriceList(this.props.priceListRequest).then(response => {
-      response.Response
-        ? this.setState({
-            errorMessage:
-              'Oops! No data available try again or use uppercase letters like (e.g. BTC, NMC).',
-            priceList: []
-          })
-        : this.setState({ priceList: response });
-    });
-  };
   displaySnackBarMessage = () => {
     return (
       <SnackbarContent
-        message={this.state.errorMessage}
+        message={this.props.errorMessage}
         style={{ backgroundColor: '#4e2872' }}
         className="crypto-priceList-container-item"
       />
     );
   };
   render() {
-    this.getPriceListRequest();
     const cryptoPriceList =
-      this.state.errorMessage && this.state.priceList.length === 0
+      this.props.errorMessage && this.state.priceList.length === 0
         ? this.displaySnackBarMessage()
         : Object.keys(this.state.priceList).map((eachPriceListItem, index) => (
             <div key={index}>
@@ -53,7 +38,7 @@ class GetCryptoPriceList extends Component {
                   </p>
                 </div>
                 <IconButton
-                  onClick={evt => {
+                  onClick={(evt) => {
                     this.props.handleDeleteButtonClick(eachPriceListItem, evt);
                   }}
                 >

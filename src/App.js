@@ -7,11 +7,15 @@ import GetCryptoPriceList from './components/list/getCryptoPrice';
 import LayoutTextComponent from './components/text/layout';
 import FooterTextComponent from './components/text/footer';
 
+import getCryptoPriceList from './_services/request';
+
 import './App.scss';
 class App extends Component {
   state = {
     input: '',
-    priceListRequest: JSON.parse(localStorage.getItem('priceListRequest')) || []
+    priceListRequest:
+      JSON.parse(localStorage.getItem('priceListRequest')) || [],
+    errorMessage: ''
   };
   componentDidUpdate(prevState) {
     if (this.state.priceListRequest !== prevState.priceListRequest) {
@@ -21,19 +25,31 @@ class App extends Component {
       );
     }
   }
-  handleChange = e => {
+  getPriceListRequest = () => {
+    getCryptoPriceList(this.props.priceListRequest).then((response) => {
+      response.Response
+        ? this.setState({
+            errorMessage:
+              'Oops! No data available try again or use uppercase letters like (e.g. BTC, NMC).',
+            priceList: [],
+          })
+        : this.setState({ priceList: response });
+    });
+  };
+  handleChange = (e) => {
     this.setState({ input: e.target.value });
   };
-  onAddButtonClick = e => {
-    this.setState(previousState => ({
-      priceListRequest: [...previousState.priceListRequest, this.state.input]
+  onAddButtonClick = (e) => {
+    this.setState((previousState) => ({
+      priceListRequest: [...previousState.priceListRequest, this.state.input],
     }));
+     this.getPriceListRequest();
   };
   onDeleteButtonClick = (item, e) => {
     this.setState({
       priceListRequest: this.state.priceListRequest.filter(
-        request => item !== request
-      )
+        (request) => item !== request
+      ),
     });
   };
   render() {
@@ -46,6 +62,7 @@ class App extends Component {
               <GetCryptoPriceList
                 priceListRequest={this.state.priceListRequest}
                 handleDeleteButtonClick={this.onDeleteButtonClick}
+                errorMessage={this.state.errorMessage}
               />
             </div>
             <div className="App-content-center">
