@@ -1,7 +1,7 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import Typography from "@material-ui/core/Typography";
 
-import Logo from '../../assets/logo.svg';
+import Logo from "../../assets/logo.svg";
 
 export default function LayoutTextComponent() {
   return (
@@ -10,7 +10,7 @@ export default function LayoutTextComponent() {
       <Typography
         variant="h4"
         gutterBottom
-        style={{ width: '100%', marginTop: '15%' }}
+        style={{ width: "100%", marginTop: "15%" }}
       >
         Now you can track all your cryptos here!
       </Typography>

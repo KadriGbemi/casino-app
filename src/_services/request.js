@@ -1,13 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
+
+const url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=";
 
 function getCryptoPriceList(requests) {
-  return axios
-    .get(
-      `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${requests}&tsyms=EUR`
-    )
-    .then(response => {
-      return response.data;
-    });
+  return axios.get(`${url}${requests}&tsyms=EUR`).then((response) => response.data);
 }
 
 export default getCryptoPriceList;

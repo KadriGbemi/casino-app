@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["react-app", "airbnb", "prettier", "prettier/react"],
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "linebreak-style": ["error", "windows"],
+    "quotes": "off",
+    "comma-dangle": "off",
+    "react/prefer-es6-class": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": [1],
+    "react/no-array-index-key": [1],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "printWidth": 85
+      }
+    ]
+  }
+}
