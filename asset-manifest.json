@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/casino-app/static/css/main.985ea9bf.chunk.css",
-    "main.js": "/casino-app/static/js/main.2dbf0a0f.chunk.js",
-    "main.js.map": "/casino-app/static/js/main.2dbf0a0f.chunk.js.map",
-    "runtime-main.js": "/casino-app/static/js/runtime-main.290b2550.js",
-    "runtime-main.js.map": "/casino-app/static/js/runtime-main.290b2550.js.map",
-    "static/js/2.e97ddffd.chunk.js": "/casino-app/static/js/2.e97ddffd.chunk.js",
-    "static/js/2.e97ddffd.chunk.js.map": "/casino-app/static/js/2.e97ddffd.chunk.js.map",
+    "main.css": "/casino-app/static/css/main.5e2037ec.chunk.css",
+    "main.js": "/casino-app/static/js/main.01fc1c06.chunk.js",
+    "main.js.map": "/casino-app/static/js/main.01fc1c06.chunk.js.map",
+    "runtime-main.js": "/casino-app/static/js/runtime-main.93ff32c9.js",
+    "runtime-main.js.map": "/casino-app/static/js/runtime-main.93ff32c9.js.map",
+    "static/js/2.4bdc7a08.chunk.js": "/casino-app/static/js/2.4bdc7a08.chunk.js",
+    "static/js/2.4bdc7a08.chunk.js.map": "/casino-app/static/js/2.4bdc7a08.chunk.js.map",
     "index.html": "/casino-app/index.html",
-    "precache-manifest.371038f0dea05f5501c113acc68afcb1.js": "/casino-app/precache-manifest.371038f0dea05f5501c113acc68afcb1.js",
+    "precache-manifest.a1df9b578beeb119b010f696d3d13736.js": "/casino-app/precache-manifest.a1df9b578beeb119b010f696d3d13736.js",
     "service-worker.js": "/casino-app/service-worker.js",
-    "static/css/main.985ea9bf.chunk.css.map": "/casino-app/static/css/main.985ea9bf.chunk.css.map",
-    "static/js/2.e97ddffd.chunk.js.LICENSE.txt": "/casino-app/static/js/2.e97ddffd.chunk.js.LICENSE.txt",
+    "static/css/main.5e2037ec.chunk.css.map": "/casino-app/static/css/main.5e2037ec.chunk.css.map",
     "static/media/App.scss": "/casino-app/static/media/bg.84e1352a.png",
     "static/media/figure.png": "/casino-app/static/media/figure.50a6406b.png",
     "static/media/icon.svg": "/casino-app/static/media/icon.64c89343.svg",
     "static/media/logo.svg": "/casino-app/static/media/logo.c308b163.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.290b2550.js",
-    "static/js/2.e97ddffd.chunk.js",
-    "static/css/main.985ea9bf.chunk.css",
-    "static/js/main.2dbf0a0f.chunk.js"
+    "static/js/runtime-main.93ff32c9.js",
+    "static/js/2.4bdc7a08.chunk.js",
+    "static/css/main.5e2037ec.chunk.css",
+    "static/js/main.01fc1c06.chunk.js"
   ]
 }

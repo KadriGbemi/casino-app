@@ -1,27 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "60221f67956d8e86f884c00c98ffbc2e",
+    "revision": "db414310ccf7d3163c149752b1da35dd",
     "url": "/casino-app/index.html"
   },
   {
-    "revision": "3dd3d5596740971de45e",
-    "url": "/casino-app/static/css/main.985ea9bf.chunk.css"
+    "revision": "ec1c42940e14d36a4d08",
+    "url": "/casino-app/static/css/main.5e2037ec.chunk.css"
   },
   {
-    "revision": "1bb84b7a322354291b5a",
-    "url": "/casino-app/static/js/2.e97ddffd.chunk.js"
+    "revision": "c5fe1983c770119e8d4a",
+    "url": "/casino-app/static/js/2.4bdc7a08.chunk.js"
   },
   {
-    "revision": "89ea5e0ed13930f7b9c9c2f392e27cfe",
-    "url": "/casino-app/static/js/2.e97ddffd.chunk.js.LICENSE.txt"
+    "revision": "ec1c42940e14d36a4d08",
+    "url": "/casino-app/static/js/main.01fc1c06.chunk.js"
   },
   {
-    "revision": "3dd3d5596740971de45e",
-    "url": "/casino-app/static/js/main.2dbf0a0f.chunk.js"
-  },
-  {
-    "revision": "718bfe876eafe2ba3773",
-    "url": "/casino-app/static/js/runtime-main.290b2550.js"
+    "revision": "45b242de74734bcdc60d",
+    "url": "/casino-app/static/js/runtime-main.93ff32c9.js"
   },
   {
     "revision": "84e1352a120482d9b1548a91ef71a652",
