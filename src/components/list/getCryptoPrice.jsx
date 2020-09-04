@@ -9,11 +9,6 @@ import Icon from "../../assets/icon.svg";
 import "./getCryptoPrice.scss";
 
 class GetCryptoPriceList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { priceList: [] };
-  }
-
   displaySnackBarMessage = () => {
     const { errorMessage } = this.props;
     return (
@@ -26,34 +21,37 @@ class GetCryptoPriceList extends Component {
   };
 
   render() {
-    const { errorMessage, handleDeleteButtonClick } = this.props;
-    const { priceList } = this.state;
+    const { errorMessage, handleDeleteButtonClick, priceList } = this.props;
     const cryptoPriceList =
       errorMessage && priceList.length === 0
         ? this.displaySnackBarMessage()
-        : Object.entries(priceList).map((objectKey, eachPriceListItem) => (
-            <div key={objectKey}>
-              <div className="crypto-priceList-container-item">
-                <img src={Icon} alt="icon" />
-                <div className="crypto-priceList-container-item-col">
-                  <Typography variant="subtitle2" gutterBottom>
-                    {eachPriceListItem}
-                  </Typography>
-                  <p className="App-content-sub-details">
-                    {priceList[eachPriceListItem].EUR} €
-                  </p>
+        : priceList.map((price) => {
+            const keyObj = Object.keys(price);
+            const priceKey = keyObj[0];
+            return (
+              <div key={price.id}>
+                <div className="crypto-priceList-container-item">
+                  <img src={Icon} alt="icon" />
+                  <div className="crypto-priceList-container-item-col">
+                    <Typography variant="subtitle2" gutterBottom>
+                      {priceKey}
+                    </Typography>
+                    <p className="App-content-sub-details">
+                      {price[priceKey].EUR} €
+                    </p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      handleDeleteButtonClick(price.id);
+                    }}
+                  >
+                    <CloseIcon className="crypto-priceList-container-item-close" />
+                  </IconButton>
                 </div>
-                <IconButton
-                  onClick={(evt) => {
-                    handleDeleteButtonClick(eachPriceListItem, evt);
-                  }}
-                >
-                  <CloseIcon className="crypto-priceList-container-item-close" />
-                </IconButton>
+                <hr />
               </div>
-              <hr />
-            </div>
-          ));
+            );
+          });
     return <div className="crypto-priceList-container">{cryptoPriceList}</div>;
   }
 }
@@ -63,8 +61,12 @@ export default GetCryptoPriceList;
 GetCryptoPriceList.propTypes = {
   errorMessage: PropTypes.string,
   handleDeleteButtonClick: PropTypes.func.isRequired,
+  priceList: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.number])
+  ),
 };
 
 GetCryptoPriceList.defaultProps = {
   errorMessage: "",
+  priceList: [],
 };

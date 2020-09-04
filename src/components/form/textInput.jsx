@@ -82,10 +82,10 @@ export default function TextInputFormComponent({
 }
 
 TextInputFormComponent.propTypes = {
-  handleTextFieldChange: PropTypes.string,
+  handleTextFieldChange: PropTypes.func,
   handleAddButtonClick: PropTypes.func.isRequired,
 };
 
 TextInputFormComponent.defaultProps = {
-  handleTextFieldChange: "",
+  handleTextFieldChange: () => {},
 };

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Figure from "./assets/figure.png";
 import TextInputFormComponent from "./components/form/textInput";
 import GetCryptoPriceList from "./components/list/getCryptoPrice";
@@ -15,45 +14,46 @@ class App extends Component {
     super(props);
     this.state = {
       input: "",
-      priceListRequest: JSON.parse(localStorage.getItem("priceListRequest")) || [],
+      priceList: JSON.parse(localStorage.getItem("priceList")) || [],
       errorMessage: "",
+      id: JSON.parse(localStorage.getItem("id")) || 0,
     };
   }
 
   componentDidUpdate(prevState) {
-    const { priceListRequest } = this.state;
-    if (priceListRequest !== prevState.priceListRequest) {
-      localStorage.setItem("priceListRequest", JSON.stringify(priceListRequest));
+    const { priceList } = this.state;
+    if (priceList !== prevState.priceList) {
+      localStorage.setItem("priceList", JSON.stringify(priceList));
     }
   }
 
-  onDeleteButtonClick(item) {
-    const { priceListRequest } = this.state;
-    this.setState({
-      priceListRequest: priceListRequest.filter((request) => item !== request),
-    });
+  onDeleteButtonClick(id) {
+    this.setState((previousState) => ({
+      priceList: previousState.priceList.filter((request) => id !== request.id),
+    }));
   }
 
   onAddButtonClick() {
     const { input } = this.state;
-    this.setState((previousState) => ({
-      priceListRequest: [...previousState.priceListRequest, input],
-    }));
-    this.getPriceListRequest();
+    this.getPriceListRequest(input);
   }
 
-  getPriceListRequest() {
-    const { priceListRequest } = this.props;
-    getCryptoPriceList(priceListRequest).then((response) => {
+  getPriceListRequest(input) {
+    getCryptoPriceList(input).then((response) => {
       if (response.Response) {
         return this.setState({
           errorMessage:
             "Oops! No data available try again or use uppercase letters like (e.g. BTC, NMC).",
-          // priceList: [],
+          priceList: [],
         });
       }
-      // return this.setState({ priceList: response });
-      return response;
+      const { id } = this.state;
+      const getResponse = { ...response, id: id + 1 };
+      localStorage.setItem("id", JSON.stringify(getResponse.id));
+      return this.setState((previousState) => ({
+        id: getResponse.id,
+        priceList: previousState.priceList.concat(getResponse),
+      }));
     });
   }
 
@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   render() {
-    const { priceListRequest, errorMessage } = this.state;
+    const { errorMessage, priceList } = this.state;
     return (
       <div className="App">
         <div className="App-layout">
@@ -70,8 +70,8 @@ class App extends Component {
             <div className="App-content-info">
               <LayoutTextComponent />
               <GetCryptoPriceList
-                priceListRequest={priceListRequest}
-                handleDeleteButtonClick={this.onDeleteButtonClick}
+                priceList={priceList}
+                handleDeleteButtonClick={(e) => this.onDeleteButtonClick(e)}
                 errorMessage={errorMessage}
               />
             </div>
@@ -80,8 +80,8 @@ class App extends Component {
             </div>
             <div className="App-content-form">
               <TextInputFormComponent
-                handleAddButtonClick={this.onAddButtonClick}
-                handleTextFieldChange={this.handleChange}
+                handleAddButtonClick={(e) => this.onAddButtonClick(e)}
+                handleTextFieldChange={(e) => this.handleChange(e)}
               />
             </div>
           </div>
@@ -92,11 +92,3 @@ class App extends Component {
   }
 }
 export default App;
-
-App.propTypes = {
-  priceListRequest: PropTypes.string,
-};
-
-App.defaultProps = {
-  priceListRequest: "",
-};
