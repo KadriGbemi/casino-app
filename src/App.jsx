@@ -48,7 +48,7 @@ class App extends Component {
         });
       }
       const { id } = this.state;
-      const getResponse = { ...response, id: id + 1 };
+      const getResponse = Object.assign(response, { id: id + 1 });
       localStorage.setItem("id", JSON.stringify(getResponse.id));
       return this.setState((previousState) => ({
         id: getResponse.id,
